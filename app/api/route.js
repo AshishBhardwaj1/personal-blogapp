@@ -1,7 +1,27 @@
-export async function GET(){
-    const response = await fetch("https://newsapi.org/v2/everything?q=bitcoin&apiKey=d54d5768df024b09b9e114a48f124fdc")
+import { ConnectDB } from "@/lib/config/db";
+import blogmodel from "@/lib/models/blogmodel";
+import { NextResponse } from "next/server";
 
-    const data = await response.json()
-    return Response.json({data})
+const datafromdb =async()=>{
+  await  ConnectDB()
+}
+export async function GET(request){
+  const blog = await blogmodel.find({})
+  return NextResponse.json({blog:blog})
+}
+export async function POST(request){
+  const {title,content,author } =await request.json()
+  await blogmodel.create({
+    title,
+    content,
+    author
+  })
+  return NextResponse.json({msg:"blog created"})
+}
+datafromdb()
 
+export async function DELETE(request){
+  const blogid = await request.nextUrl.searchParams.get('blogid')
+  await blogmodel.findByIdAndDelete(blogid)
+  return NextResponse.json({msg:"deleted"})
 }
