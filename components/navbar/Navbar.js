@@ -30,18 +30,22 @@ const Navbar = () => {
 
   const links = [
     {
+       id:1,
       name:'Home',
       href:"/"
     },
     {
+      id:2,
       name:'Blog',
       href:"/blogpage"
     },
     {
+      id:3,
       name:'Create blog',
       href:"/createblog"
     },
    {
+    id:4,
     name:"Contact",
     href:"/contact"
    }
@@ -62,7 +66,7 @@ const Navbar = () => {
     {
 links.map(link=>(
 
-  <Link className="text-white m-7 sm:m:4 hover:transform(1.3) hover:text-red-500 active:text-red-800 " href={link.href} >{link.name} </Link>
+  <Link key={link.id} className="text-white m-7 sm:m:4 hover:transform(1.3) hover:text-red-500 active:text-red-800 " href={link.href} >{link.name} </Link>
 ))
     }
   </ul>

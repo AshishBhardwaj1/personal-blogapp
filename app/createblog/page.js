@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import React, {  useState } from 'react'
 
-const createblog = () => {
+const Createblog = () => {
   const router =useRouter()
   const [title ,setTitle] =useState("")
   const [content ,setContent] =useState("")
@@ -47,4 +47,4 @@ try {
   )
 }
 
-export default createblog
+export default Createblog
