@@ -7,7 +7,7 @@ import logo from "@/public/images/logo.jpg"
 
 const Navbar = () => {
  
-  const TOP_OFFSET = 50;
+  // const TOP_OFFSET = 50;
   // const [showBackground, setShowBackground] = useState(false);
 
   // useEffect(() => {
@@ -51,7 +51,7 @@ const Navbar = () => {
    }
   ]
   return (
-    <div className="flex justify-between  bg-gray-800 h-[70px] w-[100%] items-center fixed  ">
+    <div className="flex justify-between  bg-gray-800 h-[70px] w-[100%] items-center fixed z-9999">
 <div className="flex mx-6 items-center">
   <Image src={logo} 
   width={50}
